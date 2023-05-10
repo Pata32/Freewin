@@ -6,25 +6,24 @@ if((isset($_POST['login']) && isset($_POST['password'])) && (($_POST['login'] !=
     $stmt = $conn->prepare($query);
     
     // Récupération des entrées utilisateur
-    $login = $_POST['login'];
-    $password = md5($_POST['password']);
+    $login_post = $_POST['login'];
+    $password_post = md5($_POST['password']);
     
     // Liaison des paramètres à la requête préparée
-    $stmt->bindParam(":email", $login);
-    $stmt->bindParam(":password", $password);
+    $stmt->bindParam(":email", $login_post);
+    $stmt->bindParam(":password", $password_post);
     
     // Exécution de la requête
     $stmt->execute();
     
     // Récupération des résultats
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-    // Itération sur les résultats pour récupérer l'email
-    foreach ($results as $row) {
-        $email = $row['email'];
-        echo $email;
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if(($login_post == $row['email']) && ($password_post == $row['password'])){
+        header('Location: http://localhost/Freewin');
+    }else{
+        header('Location: http://localhost/Freewin/login.php');
     }
-}
-else{
-    echo "Les champs de formulaire n'ont pas été soumis.";
+}else{
+    header('Location: http://localhost/Freewin/login.php');
 }

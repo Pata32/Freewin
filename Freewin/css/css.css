@@ -1,0 +1,28 @@
+.box {
+    margin: auto; /* Centers the box horizontally */
+    margin-top: 50px; /* Adds some vertical space between the box and the top of the screen */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.field-required{
+    color:red;
+}
+
+.login-background{
+    background-image: url(../images/fond.png);
+        
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
