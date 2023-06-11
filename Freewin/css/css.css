@@ -1,3 +1,8 @@
+:root {
+    --freewin-orange: #FFA500;
+    --freewin-white: white;
+}
+
 .box {
     margin: auto; /* Centers the box horizontally */
     margin-top: 50px; /* Adds some vertical space between the box and the top of the screen */
@@ -25,4 +30,38 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.btn.btn-tag.active{
+    background-color: var(--freewin-orange);
+    color: var(--freewin-white);
+}
+
+.btn.btn-tag{
+    background-color: var(--freewin-white);
+    color: var(--freewin-orange);
+    padding:10px;
+    margin:90px;
+    border-radius: 100px;
+    min-width: 130px;
+    min-height: 20px;
+    border-color: var(--freewin-orange);
+    text-align: center;
+}
+
+.tag{
+    padding:30px;
+    text-align: center;
+    color: var(--freewin-orange);
+}
+
+.btn.button{
+    background-color: var(--freewin-orange);
+    color: var(--freewin-white);
+    border-width: 2px;
+    margin: auto;
+}
+
+.center {
+    text-align: center;
 }
