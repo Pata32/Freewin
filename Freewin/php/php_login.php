@@ -2,7 +2,7 @@
     require_once "connect_db.php";
 
 if((isset($_POST['login']) && isset($_POST['password'])) && (($_POST['login'] != "") && ($_POST['password'] != ""))){
-    $query = "SELECT id,email,password FROM user WHERE email=:email AND password=:password";
+    $query = "SELECT email,password FROM user WHERE email=:email AND password=:password";
     $stmt = $conn->prepare($query);
     
     // Récupération des entrées utilisateur
@@ -20,8 +20,6 @@ if((isset($_POST['login']) && isset($_POST['password'])) && (($_POST['login'] !=
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if(($login_post == $row['email']) && ($password_post == $row['password'])){
-        session_start();
-        $_SESSION["id_user"] = $row['id'];
         header('Location: http://localhost/Freewin');
     }else{
         header('Location: http://localhost/Freewin/login.php');

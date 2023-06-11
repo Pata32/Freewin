@@ -1,11 +1,13 @@
 body{
     background-image: url("../images/fond.png");
     background-size:100% 100%;
-   background-repeat:no-repeat;
+    background-repeat:no-repeat;
 }
 
 .head{
     text-align: center;
+    font-family: cursive;
+    font-size: x-large;
 }
 
 .canvas{
@@ -13,7 +15,7 @@ body{
 }
 
 table{
-	border : 2px solid black;
+	border : 2px solid rgba(255, 255, 255, 0.349);
     background-color: rgba(255, 255, 255, 0.56);
 }
 
@@ -21,14 +23,4 @@ th, tr, td {
     text-align: center;
 }
 
-.pw1{
-    background-color: greenyellow;
-}
 
-.pw2{
-    background-color: orange;
-}
-
-.pw3{
-    background-color: red;
-}
