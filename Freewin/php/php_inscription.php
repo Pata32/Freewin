@@ -1,4 +1,4 @@
 <?php 
     require_once "connect_db.php";
-
-    if(isset())
+    print_r($_POST);
+?>
