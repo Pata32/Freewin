@@ -62,11 +62,18 @@
     margin: auto;
 }
 
-#btn_spin{
+.center {
+    text-align: center;
+}
+
+.btn.button.play{
     font-size: 20px;
     min-width: 130px;
     min-height: 50px;
+    border-width: 0px;
+    border-radius: 100px;
 }
-.center {
-    text-align: center;
+
+.text-time{
+    font-size: 25px;
 }

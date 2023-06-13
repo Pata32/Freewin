@@ -1,10 +1,18 @@
+<?php 
+require_once "php/connect_db.php";
+session_start();
+if(!isset($_SESSION["id_user"])){
+    header('Location: http://localhost/Freewin/login.php');
+}
+
+?>
 <html>
 <head>
     <title>Freewin -- La victoire entre vos mains!</title>
     <link rel="stylesheet" href="css/index.css" type="text/css" />
     <link rel="stylesheet" href="css/css.css" type="text/css" />
     <script type="text/javascript" src="librairy\Winwheel.js"></script>
-    
+    <script src="javascript/ajax/ajax-get-hours.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 </head>
 
@@ -31,7 +39,7 @@
                         <tr>
                             <td>
                                 <div class="canvas">
-                                    <canvas id="canvas1" width="434" height="434">
+                                    <canvas id="canvas1" width="434" height="434" data-responsiveMinWidth="180" data-responsiveScaleHeight="true" data-responsiveMargin="50">
                                         <p style="color: white"> Sorry, your browser doesn't support canvas. Please try another.</p>
                                     </canvas>
                                 </div>
@@ -40,8 +48,10 @@
                         <tr>
                             <td>
                                 <div class = center>
-                                    <button id="btn_spin" class="btn button" onClick="startSpin(1);"> Tourner la roue! </button>
-                                    <img id="spin_button"  src="images\spin.png" width="50" height="50" alt="Spin" onClick="resetWheel(1); return false;" />
+                                    <button id="btn_spin_1" hidden class="btn button play" onClick="playPub('btn_spin_1')"> Tournez la roue ! </button>
+                                    <span id="timer_1" class="text-time"></span>
+                                    <!-- <input type="button" id="button_play" hidden value="Jouer"> -->
+                                    <!-- <img id="spin_button"  src="images\spin.png" width="50" height="50" alt="Spin" onClick="resetWheel(1); return false;" /> -->
                                 </div>
                             </td>
                         </tr>
@@ -70,8 +80,9 @@
                         <tr>
                             <td>
                                 <div class = center>
-                                    <button id="btn_spin" class="btn button" onClick="startSpin(2);"> Tourner la roue! </button>
-                                    <img id="spin_button"  src="images\spin.png" width="50" height="50" alt="Spin" onClick="resetWheel(2); return false;" />
+                                    <button id="btn_spin_2" hidden class="btn button play" onClick="playPub('btn_spin_2');"> Tourner la roue! </button>
+                                    <span id="timer_2" class="text-time"></span>
+                                    <!-- <img id="spin_button"  src="images\spin.png" width="50" height="50" alt="Spin" onClick="resetWheel(2); return false;" /> -->
                                 </div>
                             </td>
                         </tr>
@@ -99,16 +110,24 @@
                         <tr>
                             <td>
                                 <div class = center>
-                                    <button id="btn_spin" class="btn button" onClick="startSpin(3);"> Tourner la roue! </button>
-                                    <img id="spin_button"  src="images\spin.png" width="50" height="50" alt="Spin" onClick="resetWheel(3); return false;" />
-                                </div>
+                                    <button id="btn_spin_3" hidden class="btn button play" onClick="playPub('btn_spin_2');"> Tourner la roue! </button>
+                                    <span id="timer_3" class="text-time"></span>
+                                    <!--<input type="button" id="button_play" hidden value="Jouer">
+                                    <img id="spin_button"  src="images\spin.png" width="50" height="50" alt="Spin" onClick="resetWheel(3); return false;" /> -->
+                                </div> 
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </td>
-    
+            </td>   
+<div id="popup">
+    <div id="videoContainer">
+      <video id="videoPlayer" autoplay="true" controls>
+        <source src="Pub-Freewin/1_musique/30.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 <script type="text/javascript" src="librairy/index.js"></script>
 </body>
-
+<script>changeHour()</script>
 </html>

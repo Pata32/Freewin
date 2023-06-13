@@ -3,7 +3,8 @@
 let wheel1 = new Winwheel({
     'canvasId': 'canvas1',
     'numSegments': 2,     // Specify number of segments.
-    'outerRadius': 212,   // Set outer radius so wheel fits inside the background.
+    'outerRadius': 212, 
+    'responsive' :true,  // Set outer radius so wheel fits inside the background.
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
         [
@@ -15,14 +16,15 @@ let wheel1 = new Winwheel({
         'type': 'spinToStop',
         'duration': 5,     // Duration in seconds.
         'spins': 8,     // Number of complete spins.
-            'callbackFinished': alertPrize
+        'callbackFinished': alertPrize
         },  
 });
 
 let wheel2 = new Winwheel({
     'canvasId': 'canvas2',
     'numSegments': 2,     // Specify number of segments.
-    'outerRadius': 212,   // Set outer radius so wheel fits inside the background.
+    'outerRadius': 212,
+    'responsive' :true,   // Set outer radius so wheel fits inside the background.
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
     [
@@ -34,14 +36,15 @@ let wheel2 = new Winwheel({
         'type': 'spinToStop',
         'duration': 5,     // Duration in seconds.
         'spins': 8,     // Number of complete spins.
-            'callbackFinished': alertPrize
+        'callbackFinished': alertPrize
         }
 });
 
 let wheel3 = new Winwheel({
     'canvasId': 'canvas3',
     'numSegments': 2,     // Specify number of segments.
-    'outerRadius': 212,   // Set outer radius so wheel fits inside the background.
+    'outerRadius': 212,
+    'responsive' :true,   // Set outer radius so wheel fits inside the background.
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
     [
@@ -53,7 +56,7 @@ let wheel3 = new Winwheel({
         'type': 'spinToStop',
         'duration': 5,     // Duration in seconds.
         'spins': 8,     // Number of complete spins.
-            'callbackFinished': alertPrize
+        'callbackFinished': alertPrize
         }
 });
 
@@ -131,8 +134,8 @@ function startSpin(wheelNumber) {
         }
         
         // Disable the spin button so can't click again while wheel is spinning.
-        document.getElementById('spin_button').src = "images/spin.png";
-        document.getElementById('spin_button').className = "";
+        //document.getElementById('spin_button').src = "images/spin.png";
+        //document.getElementById('spin_button').className = "";
 
         // Begin the spin animation by calling startAnimation on the wheel object.
         wheel.startAnimation();
@@ -148,7 +151,6 @@ function startSpin(wheelNumber) {
 // -------------------------------------------------------
 function resetWheel(wheelNumber) {
     let wheel;
-    
     // Identifier quelle roulette doit être réinitialisée en fonction du paramètre wheelNumber
     if (wheelNumber === 1) {
         wheel = wheel1;
@@ -169,6 +171,27 @@ function resetWheel(wheelNumber) {
 // note the indicated segment is passed in as a parmeter as 99% of the time you will want to know this to inform the user of their prize.
 // -------------------------------------------------------
 function alertPrize(indicatedSegment) {
+    canvasId = this.document.activeElement.id;
+    canvasId = canvasId.slice(-1);
     // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
-    alert("You have won " + indicatedSegment.text);
+    resetWheel(parseInt(canvasId));
+    //alert(indicatedSegment.text);
+    changeHourRoul(canvasId);
+}
+
+function changeDateTimeSQL(id){
+    changeHourRoul(id);
+}
+
+function playPub(id){
+    document.getElementById('popup').style.display = 'flex';
+    document.getElementById('videoPlayer').controls = false;
+    document.getElementById('videoPlayer').play();  
+    
+    videoPlayer.addEventListener('ended', function() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('videoPlayer').pause();
+        id = parseInt(id.slice(-1));
+        startSpin(id);
+    });
 }
