@@ -117,58 +117,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <meta charset="UTF-8">
 <title>Freewin - S'inscrire</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="./logo.jpg">
-<link rel="stylesheet" href="./grid.css">
+
 <link rel="stylesheet" href="./SignUp.css">
 <style>
 </style>
 <body>
-	<div class="wrapper">
-		<div class="logo1">
-			<img src=""></img>
-		</div>
-		<div class="logo2">
-			<img src=""></img>
-		</div>
-		<div class="one">
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-		<h1>Free Win - S'inscrire</h1>
-			<div class="form">
-				<label for="">Prénom *</label>
-				<input type="text" name="name" placeholder="Prénom *" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ''; ?>"> 
+	<div class="wrap">
+		<form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+			<div class="form-header">
+				<h1>Freewin</h1>
+			</div>
+			<!--Name / Surname-->
+			<div class="form-group">
+				<label for="name">Prénom <span class="field-required">*</span></label>
+				<input name="name" type="text" required class="form-input" placeholder="Entrez votre prénom">
 				<span class="error"><?php echo $nameErr;?></span>
 			</div>
-			<div class="form">
-				<label for="">Nom *</label>
-				<input type="text" name="surname" placeholder="Nom" value="<?php echo isset($_POST['surname']) ? $_POST['surname'] : ''; ?>">
+			<div class="form-group">
+				<label for="surname">Nom <span class="field-required">*</span></label>
+				<input name="surname" type="text" required class="form-input" placeholder="Entrez votre nom">
 				<span class="error"><?php echo $surnameErr;?></span>
 			</div>
-			<div class="form">
-				<label for="">Email *</label>
-				<input type="text" name="login" placeholder="Email" value="<?php echo isset($_POST['login']) ? $_POST['login'] : ''; ?>">
+			<!--Email Input-->
+			<div class="form-group">
+				<label for="login">Email <span class="field-required">*</span></label>
+				<input name="login" type="text" required class="form-input" placeholder="Entrez votre email">
 				<span class="error"><?php echo $emailErr;?></span>
 			</div>
-			<div class="form">
-				<label for="">Mot de passe *</label>
-				<input type="password" name="first_password" placeholder="Mot de passe">
+			<!--Password Input-->
+			<div class="form-group">
+				<label for="first_password">Mot de passe <span class="field-required">*</span></label>
+				<input name="first_password" type="password" required class="form-input" placeholder="Entrez votre mot de passe">
 				<span class="error"><?php echo $fpErr;?></span>
 			</div>
-			<div class="form">
-				<label for="">Confirmez mot de passe *</label>
-				<input type="password" name="second_password" placeholder="Confirmez votre mot de passe">
+			<div class="form-group">
+				<label for="second_password">Vérifier le mot de passe <span class="field-required">*</span></label>
+				<input name="second_password" type="password" required class="form-input" placeholder="Confirmez votre Mot de passe">
 				<span class="error"><?php echo $spErr;?></span>
 			</div>
-			<div class="field">
-					<input type="submit" name="submit" value="Submit">
-            </div>
-			<div class="botbar">
-            </div>
+			<!--Login Button-->
+			<div class="form-group">
+				<button class="form-button" type="submit">Se connecter</button>
+			</div>
+			<div class="form-footer">
+			Vous avez déjà un compte ? <a href="#">Se connecter</a>
+			</div>
 		</form>
-		</div>
-	</div>
+	</div><!--/.wrap-->
 </body>
 </html>
