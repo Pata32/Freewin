@@ -134,29 +134,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<!--Name / Surname-->
 			<div class="form-group">
 				<label for="name">Prénom <span class="field-required">*</span></label>
-				<input name="name" type="text" required class="form-input" placeholder="Entrez votre prénom">
+				<input name="name" required type="text" class="form-input" placeholder="Entrez votre prénom">
 				<span class="error"><?php echo $nameErr;?></span>
 			</div>
 			<div class="form-group">
 				<label for="surname">Nom <span class="field-required">*</span></label>
-				<input name="surname" type="text" required class="form-input" placeholder="Entrez votre nom">
+				<input name="surname" required type="text" class="form-input" placeholder="Entrez votre nom">
 				<span class="error"><?php echo $surnameErr;?></span>
 			</div>
 			<!--Email Input-->
 			<div class="form-group">
 				<label for="login">Email <span class="field-required">*</span></label>
-				<input name="login" type="text" required class="form-input" placeholder="Entrez votre email">
+				<input name="login" required type="text" class="form-input" placeholder="Entrez votre email">
 				<span class="error"><?php echo $emailErr;?></span>
 			</div>
 			<!--Password Input-->
 			<div class="form-group">
 				<label for="first_password">Mot de passe <span class="field-required">*</span></label>
-				<input name="first_password" type="password" required class="form-input" placeholder="Entrez votre mot de passe">
+				<input name="first_password" required type="password" class="form-input" placeholder="Entrez votre mot de passe">
 				<span class="error"><?php echo $fpErr;?></span>
 			</div>
 			<div class="form-group">
 				<label for="second_password">Vérifier le mot de passe <span class="field-required">*</span></label>
-				<input name="second_password" type="password" required class="form-input" placeholder="Confirmez votre Mot de passe">
+				<input name="second_password" required type="password" class="form-input" placeholder="Confirmez votre Mot de passe">
 				<span class="error"><?php echo $spErr;?></span>
 			</div>
 			<!--Login Button-->
