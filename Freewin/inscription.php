@@ -3,22 +3,56 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription - Freewin</title>
-</head>
+<html lang="fr">
+<meta charset="UTF-8">
+<title>Freewin - S'inscrire</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" href="./SignUp.css">
+<style>
+</style>
 <body>
-    <form action="php/php_inscription.php" method="post" class="form-example">
-        <input type="text" name="name" placeholder="Prénom">
-        <input type="text" name="surname" placeholder="Nom"><br>
-        <input type="text" name="login" placeholder="Email"><br>
-        <input type="password" name="first_password" placeholder="Mot de passe"><br>
-        <input type="password" name="second_password" placeholder="Confirmez votre mot de passe"><br>
-        <br>
-        <input type="submit" value="Se connecter">
-    </form>
+	<div class="wrap">
+		<form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+			<div class="form-header">
+				<h1>Freewin</h1>
+			</div>
+			<!--Name / Surname-->
+			<div class="form-group">
+				<label for="name">Prénom <span class="field-required">*</span></label>
+				<input name="name" required type="text" class="form-input" placeholder="Entrez votre prénom">
+				<span class="error"><?php echo $nameErr;?></span>
+			</div>
+			<div class="form-group">
+				<label for="surname">Nom <span class="field-required">*</span></label>
+				<input name="surname" required type="text" class="form-input" placeholder="Entrez votre nom">
+				<span class="error"><?php echo $surnameErr;?></span>
+			</div>
+			<!--Email Input-->
+			<div class="form-group">
+				<label for="login">Email <span class="field-required">*</span></label>
+				<input name="login" required type="text" class="form-input" placeholder="Entrez votre email">
+				<span class="error"><?php echo $emailErr;?></span>
+			</div>
+			<!--Password Input-->
+			<div class="form-group">
+				<label for="first_password">Mot de passe <span class="field-required">*</span></label>
+				<input name="first_password" required type="password" class="form-input" placeholder="Entrez votre mot de passe">
+				<span class="error"><?php echo $fpErr;?></span>
+			</div>
+			<div class="form-group">
+				<label for="second_password">Vérifier le mot de passe <span class="field-required">*</span></label>
+				<input name="second_password" required type="password" class="form-input" placeholder="Confirmez votre Mot de passe">
+				<span class="error"><?php echo $spErr;?></span>
+			</div>
+			<!--Login Button-->
+			<div class="form-group">
+				<button class="form-button" type="submit">Se connecter</button>
+			</div>
+			<div class="form-footer">
+			Vous avez déjà un compte ? <a href="#">Se connecter</a>
+			</div>
+		</form>
+	</div><!--/.wrap-->
 </body>
 </html>
