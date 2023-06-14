@@ -98,18 +98,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         if ($name != "" && $surname != "" && $email != "" && $fp!="" && $sp !="" && $samepassword == true && $rightpassword == true) {
-            $sql = "INSERT INTO user (name, surname, email, password) VALUES (:name, :surname, :email, :fp)";
+            $sql = "INSERT INTO user (name, surname, email, password, roul_1, roul_2, roul_3) VALUES (:name, :surname, :email, :fp, :fd, :fd, :fd)";
             $stmt = $conn -> prepare($sql);
             $name = $_POST['name'];
             $surname = $_POST['surname'];
             $password_post = md5($_POST['first_password']);
+            $firstdate_post = $seconddate_post = $thirddate_post = new DateTime(); // Utilise la date stockée en SQL
+            $result = $firstdate_post->format('Y-m-d H:i:s');
             // Liaison des paramètres à la requête préparée
             $stmt->bindParam(":name", $name);
             $stmt->bindParam(":surname", $surname);
             $stmt->bindParam(":email", $login_post);
             $stmt->bindParam(":fp", $password_post);
+            $stmt->bindParam(":fd", $result);
             if ($stmt->execute()) {
-                echo "Signup successful";
+                
             }
         }
     }
@@ -161,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			</div>
 			<!--Login Button-->
 			<div class="form-group">
-				<button class="form-button" type="submit">Se connecter</button>
+				<button class="form-button" type="submit">S'inscrire</button>
 			</div>
 			<div class="form-footer">
 			Vous avez déjà un compte ? <a href="#">Se connecter</a>
