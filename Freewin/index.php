@@ -12,7 +12,7 @@ if(!isset($_SESSION["id_user"])){
     <link rel="stylesheet" href="css/index.css" type="text/css" />
     <link rel="stylesheet" href="css/css.css" type="text/css" />
     <script type="text/javascript" src="librairy\Winwheel.js"></script>
-    <script src="javascript/ajax/ajax-get-hours.js"></script>
+    <script src="javascript/ajax/ajax.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 </head>
 
@@ -123,7 +123,7 @@ if(!isset($_SESSION["id_user"])){
 <div id="popup">
     <div id="videoContainer">
       <video id="videoPlayer" autoplay="true" controls>
-        <source src="Pub-Freewin/1_musique/30.mp4" type="video/mp4">
+        <source src="" type="video/mp4">
       </video>
     </div>
   </div>

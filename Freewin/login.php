@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="wrap">
-            <form class="login-form" action="">
+            <form class="login-form" action="php/php_login.php" method="POST">
                 <div class="form-header">
                     <h1>Freewin</h1>
                 </div>
@@ -29,7 +29,7 @@
                     <button class="form-button" type="submit">Se connecter</button>
                 </div>
                 <div class="form-footer">
-                Vous n'avez pas de compte ? <a href="#">S'inscrire</a>
+                Vous n'avez pas de compte ? <a href="inscription">S'inscrire</a>
                 </div>
             </form>
         </div><!--/.wrap-->

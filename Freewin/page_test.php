@@ -26,6 +26,7 @@
         videoPlayer.addEventListener('ended', function() {
             document.getElementById('popup').style.display = 'none';
             document.getElementById('videoPlayer').pause();
+            document.getElementById('videoPlayer').src = '';
         });
     });
   </script>

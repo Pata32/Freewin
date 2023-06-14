@@ -173,6 +173,7 @@ function resetWheel(wheelNumber) {
 function alertPrize(indicatedSegment) {
     canvasId = this.document.activeElement.id;
     canvasId = canvasId.slice(-1);
+    console.log(canvasId);
     // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
     resetWheel(parseInt(canvasId));
     //alert(indicatedSegment.text);
@@ -184,14 +185,18 @@ function changeDateTimeSQL(id){
 }
 
 function playPub(id){
-    document.getElementById('popup').style.display = 'flex';
-    document.getElementById('videoPlayer').controls = false;
-    document.getElementById('videoPlayer').play();  
+
+    console.log(getTags());
+
+
+    // document.getElementById('popup').style.display = 'flex';
+    // document.getElementById('videoPlayer').controls = false;
+    // document.getElementById('videoPlayer').play();  
     
-    videoPlayer.addEventListener('ended', function() {
-        document.getElementById('popup').style.display = 'none';
-        document.getElementById('videoPlayer').pause();
-        id = parseInt(id.slice(-1));
-        startSpin(id);
-    });
+    // videoPlayer.addEventListener('ended', function() {
+    //     document.getElementById('popup').style.display = 'none';
+    //     document.getElementById('videoPlayer').pause();
+    //     id = parseInt(id.slice(-1));
+    //     startSpin(id);
+    // });
 }
