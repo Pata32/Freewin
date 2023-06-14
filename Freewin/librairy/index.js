@@ -8,8 +8,8 @@ let wheel1 = new Winwheel({
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
         [
-            { 'fillStyle': '#FFFFFF', 'text': 'Perdu..' },
-            { 'fillStyle': '#FFa500', 'text': 'GAGNE !', 'size': 30}
+            { 'fillStyle': '#FFFFFF', 'text': '' },
+            { 'fillStyle': '#FFa500', 'text': '', 'size': 120}
         ],
     'animation':           // Specify the animation to use.
     {
@@ -28,8 +28,8 @@ let wheel2 = new Winwheel({
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
     [
-        { 'fillStyle': '#FFFFFF', 'text': 'Perdu..' },
-        { 'fillStyle': '#FFa500', 'text': 'GAGNE !', 'size': 15}
+        { 'fillStyle': '#FFFFFF', 'text': '' },
+        { 'fillStyle': '#FFa500', 'text': '', 'size': 15}
     ],
     'animation':           // Specify the animation to use.
     {
@@ -48,8 +48,8 @@ let wheel3 = new Winwheel({
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
     [
-        { 'fillStyle': '#FFFFFF', 'text': 'Perdu..' },
-        { 'fillStyle': '#FFa500', 'text': 'GAGNE !', 'size': 5}
+        { 'fillStyle': '#FFFFFF', 'text': '' },
+        { 'fillStyle': '#FFa500', 'text': '', 'size': 2}
     ],
     'animation':           // Specify the animation to use.
     {
@@ -130,15 +130,11 @@ function resetWheel(wheelNumber) {
 function alertPrize(indicatedSegment) {
     canvasId = this.document.activeElement.id;
     canvasId = canvasId.slice(-1);
-    console.log(canvasId);
-    // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
-    resetWheel(parseInt(canvasId));
-    //alert(indicatedSegment.text);
-    changeHourRoul(canvasId);
-}
 
-function changeDateTimeSQL(id){
-    changeHourRoul(id);
+
+    getPopUpResult(indicatedSegment.fillStyle,canvasId);
+    changeHourRoul(canvasId);
+    resetWheel(parseInt(canvasId));
 }
 
 function playPub(id){
@@ -149,7 +145,6 @@ function playPub(id){
         document.getElementById('videoPlayer').controls = false;
         document.getElementById('videoPlayer').load();  
         document.getElementById('videoPlayer').play();  
-        console.log(document.getElementById('videoPlayer').src);
         
         document.getElementById('videoPlayer').addEventListener('ended', function() {
             document.getElementById('popup').style.display = 'none';
@@ -159,4 +154,39 @@ function playPub(id){
         });
       }, "100")
    
+}
+
+function getPopUpResult(indicatedSegment,id){
+    var color = indicatedSegment;
+    var alerte = document.getElementById("alerte");
+    var paragraphe = document.getElementById("alerte-paragraphe");
+    let prize;
+
+    switch (id) {
+        case '1':
+            prize = 0.05
+            break;
+        case '2':
+            prize = 0.20
+            break;
+        case '3':
+            prize = 1
+            break;
+    }
+    
+    if(color === "#FFFFFF"){
+        prize = 0;
+        paragraphe.textContent = "Dommage, vous avez perdu...";
+    }else{
+        paragraphe.textContent = "Victoire, vous avez gagné  "+ prize +"€ !";
+        setPrize(prize);
+    }
+    alerte.style.display = "flex";
+}
+
+
+function fermerAlerteVictoire() {
+    var alerte = document.getElementById("alerte");
+    alerte.style.display = "none";
+    location.reload();
 }

@@ -110,7 +110,7 @@ if(!isset($_SESSION["id_user"])){
                         <tr>
                             <td>
                                 <div class = center>
-                                    <button id="btn_spin_3" hidden class="btn button play" onClick="playPub('btn_spin_2');"> Tourner la roue! </button>
+                                    <button id="btn_spin_3" hidden class="btn button play" onClick="playPub('btn_spin_3');"> Tourner la roue! </button>
                                     <span id="timer_3" class="text-time"></span>
                                     <!--<input type="button" id="button_play" hidden value="Jouer">
                                     <img id="spin_button"  src="images\spin.png" width="50" height="50" alt="Spin" onClick="resetWheel(3); return false;" /> -->
@@ -127,7 +127,17 @@ if(!isset($_SESSION["id_user"])){
       </video>
     </div>
   </div>
+
+<div id="alerte" class="alerte-victoire">
+    <div id="alerte-contenu" class="alerte-contenu">
+        <p id="alerte-paragraphe"></p>
+        <button onclick="fermerAlerteVictoire()">Fermer</button>
+    </div>
+</div>
 <script type="text/javascript" src="librairy/index.js"></script>
 </body>
 <script>changeHour()</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </html>

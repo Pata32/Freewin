@@ -23,12 +23,11 @@ function changeHourRoul(id) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "php/php_ajax_change_time.php?roul=roul_"+id, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log('test');          
+        if (xhr.readyState === 4 && xhr.status === 200) {       
         }
     };
     xhr.send();
-    location.reload();
+    
 }
 
 function getTags(id) {
@@ -74,7 +73,7 @@ function timer(dateFin,id){
         var minutes = Math.floor((tempsRestant % (1000 * 60 * 60)) / (1000 * 60));
         var secondes = Math.floor((tempsRestant % (1000 * 60)) / 1000);
     
-        document.getElementById('timer_'+id).innerText = heures+"h " + minutes + "m " + secondes + "s";
+        document.getElementById('timer_'+id).innerText = "Disponible dans \n"+heures+"h " + minutes + "m " + secondes + "s";
     
         if (tempsRestant < 0) {
           clearInterval(compteARebours);
@@ -99,3 +98,16 @@ function getUTCDate() {
     return utcDate;
   }
 
+function setPrize(prize) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "php/php_ajax_set_prize.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Traitement des données reçues du fichier PHP
+            var response = xhr.responseText;
+            console.log(response);
+        }
+    };
+    xhr.send("prize=" + encodeURIComponent(prize));
+}
