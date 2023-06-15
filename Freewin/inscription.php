@@ -83,7 +83,7 @@
 		} else {
 	
 			if ($name != "" && $surname != "" && $email != "" && $fp!="" && $sp !="" && $samepassword == true && $rightpassword == true) {
-				$sql = "INSERT INTO user (name, surname, email, password) VALUES (:name, :surname, :email, :fp)";
+				$sql = "INSERT INTO user (name, surname, email, password, cash) VALUES (:name, :surname, :email, :fp, 0)";
 				$stmt = $conn -> prepare($sql);
 				$name = $_POST['name'];
 				$surname = $_POST['surname'];
@@ -101,13 +101,17 @@
 	}
 ?>
 
+<?php
+    include "./layout.php";
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <meta charset="UTF-8">
 <title>Freewin - S'inscrire</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link rel="stylesheet" href="./SignUp.css">
+<link rel="stylesheet" href="./css/SignUp.css">
 <style>
 </style>
 <body>

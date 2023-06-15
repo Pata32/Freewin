@@ -10,11 +10,15 @@
    
 ?>
 
+<?php
+    include "./layout.php";
+?>
+
 <html>
 <head>
   <title>Tags</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="./css/layout.css">
   <script src="javascript/functions.js"></script>
 </head>
 <body>

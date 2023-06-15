@@ -2,10 +2,15 @@
 require_once "php/connect_db.php";
 session_start();
 if(!isset($_SESSION["id_user"])){
-    header('Location: http://localhost/Freewin/login.php');
+    header('Location: http://localhost/Freewin/Freewin/login.php');
 }
 
 ?>
+
+<?php
+    include "./layout.php";
+?>
+
 <html>
 <head>
     <title>Freewin -- La victoire entre vos mains!</title>

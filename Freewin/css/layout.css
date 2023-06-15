@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+:root {
+    --freewin-orange: #FFA500;
+    --freewin-white: white;
+}
+
+body {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background: var(--freewin-orange);
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    padding: 10px 0;
+}
+
+nav {
+    float: right;
+    margin-right: 15%;
+}
+
+nav ul {
+    margin: auto;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 4.5%;
+    position: relative;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: #444;
+    position: absolute;
+    top: 30;
+    width: 0%;
+    transition: all ease-in-out 700ms;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+/* 
+ul {
+	display: inline-flexbox;
+    text-align: right;
+	align-items: start;
+	list-style-type: none;
+    width: fit-content;
+}
+
+ul li {
+	padding: 6px 0;
+    width: fit-content;
+}
+
+ul li a {
+	position: relative;
+	display: block;
+	padding: 4px 0;
+	font: 900 1.5rem Raleway, sans-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+	-webkit-text-stroke: 2px var(--freewin-orange);
+	background: linear-gradient(var(--freewin-orange) 0 100%) left / 0 no-repeat;
+	color: transparent;
+	background-clip: text;
+	transition: 0.5s linear;
+}
+
+ul li a:hover {
+	background-size: 100%;
+} */
+
+.tag {
+    padding:30px;
+    text-align: center;
+    color: var(--freewin-orange);
+}
+
+.btn.btn-tag.active {
+    background-color: var(--freewin-orange);
+    color: var(--freewin-white);
+}
+
+.btn.btn-tag {
+    background-color: var(--freewin-white);
+    color: var(--freewin-orange);
+    padding:10px;
+    margin:90px;
+    border-radius: 100px;
+    min-width: 130px;
+    min-height: 20px;
+    border-color: var(--freewin-orange);
+    text-align: center;
+}
+
+.btn.button {
+    background-color: var(--freewin-orange);
+    color: var(--freewin-white);
+    border-width: 2px;
+    margin: auto;
+}
+
+.btn.button.play{
+    font-size: 20px;
+    min-width: 130px;
+    min-height: 50px;
+    border-width: 0px;
+    border-radius: 100px;
+}
+
+.center {
+    text-align: center;
+}
