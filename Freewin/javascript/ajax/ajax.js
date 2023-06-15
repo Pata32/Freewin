@@ -1,3 +1,10 @@
+Array.prototype.shuffle = function() {
+  for (let i = this.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [this[i], this[j]] = [this[j], this[i]];
+  }
+};
+
 function changeHour() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "php/php_ajax_get_time.php", true);
@@ -5,7 +12,6 @@ function changeHour() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // Traitement des données reçues du fichier PHP
             var reponse = xhr.responseText;
-            console.log(reponse);
             var json = JSON.parse(reponse);
             compteARebours(json);
         }
@@ -17,23 +23,28 @@ function changeHourRoul(id) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "php/php_ajax_change_time.php?roul=roul_"+id, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log('test');          
+        if (xhr.readyState === 4 && xhr.status === 200) {       
         }
     };
     xhr.send();
-    location.reload();
+    
 }
 
-function getTags() {
+function getTags(id) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "php/php_ajax_get_tags.php", true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // Traitement des données reçues du fichier PHP
             var reponse = xhr.responseText;
-            console.log(reponse);
-            return reponse;
+            var json = JSON.parse(reponse);
+            var values = Object.values(json);
+            values.shuffle();
+            id = id.slice(-1);
+            var dossier = values[0].toLowerCase().trim().replaceAll("é","e");
+            let video = document.getElementById('src_video');
+            video.src = "Pub-Freewin/" + dossier + "/" +id+".mp4";
+            console.log(video);
         }
     };
     xhr.send();
@@ -62,7 +73,7 @@ function timer(dateFin,id){
         var minutes = Math.floor((tempsRestant % (1000 * 60 * 60)) / (1000 * 60));
         var secondes = Math.floor((tempsRestant % (1000 * 60)) / 1000);
     
-        document.getElementById('timer_'+id).innerText = heures+"h " + minutes + "m " + secondes + "s";
+        document.getElementById('timer_'+id).innerText = "Disponible dans \n"+heures+"h " + minutes + "m " + secondes + "s";
     
         if (tempsRestant < 0) {
           clearInterval(compteARebours);
@@ -86,3 +97,17 @@ function getUTCDate() {
     
     return utcDate;
   }
+
+function setPrize(prize) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "php/php_ajax_set_prize.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Traitement des données reçues du fichier PHP
+            var response = xhr.responseText;
+            console.log(response);
+        }
+    };
+    xhr.send("prize=" + encodeURIComponent(prize));
+}

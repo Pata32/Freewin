@@ -8,8 +8,8 @@ let wheel1 = new Winwheel({
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
         [
-            { 'fillStyle': '#FFFFFF', 'text': 'Perdu..' },
-            { 'fillStyle': '#FFa500', 'text': 'GAGNE !', 'size': 30}
+            { 'fillStyle': '#FFFFFF', 'text': '' },
+            { 'fillStyle': '#FFa500', 'text': '', 'size': 30}
         ],
     'animation':           // Specify the animation to use.
     {
@@ -28,8 +28,8 @@ let wheel2 = new Winwheel({
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
     [
-        { 'fillStyle': '#FFFFFF', 'text': 'Perdu..' },
-        { 'fillStyle': '#FFa500', 'text': 'GAGNE !', 'size': 15}
+        { 'fillStyle': '#FFFFFF', 'text': '' },
+        { 'fillStyle': '#FFa500', 'text': '', 'size': 15}
     ],
     'animation':           // Specify the animation to use.
     {
@@ -48,8 +48,8 @@ let wheel3 = new Winwheel({
     'textFontSize': 28,    // Set font size as desired.
     'segments':        // Define segments including colour and text.
     [
-        { 'fillStyle': '#FFFFFF', 'text': 'Perdu..' },
-        { 'fillStyle': '#FFa500', 'text': 'GAGNE !', 'size': 5}
+        { 'fillStyle': '#FFFFFF', 'text': '' },
+        { 'fillStyle': '#FFa500', 'text': '', 'size': 2}
     ],
     'animation':           // Specify the animation to use.
     {
@@ -65,49 +65,6 @@ let wheel3 = new Winwheel({
 let wheelPower = 0;
 let wheelSpinning = false;
 
-// -------------------------------------------------------
-// Function to handle the onClick on the power buttons.
-// -------------------------------------------------------
-
-/*
-function powerSelected(wheelNumber, powerLevel) {
-    let wheel;
-    if (wheelNumber === 1) {
-        wheel = wheel1;
-    } else if (wheelNumber === 2) {
-        wheel = wheel2;
-    } else if (wheelNumber === 3) {
-        wheel = wheel3;
-    }
-    // Ensure that power can't be changed while wheel is spinning.
-    if (wheelSpinning == false) {
-        // Reset all to grey incase this is not the first time the user has selected the power.
-        document.getElementById('pw1').className = "";
-        document.getElementById('pw2').className = "";
-        document.getElementById('pw3').className = "";
-
-        // Now light up all cells below-and-including the one selected by changing the class.
-        if (powerLevel >= 1) {
-            document.getElementById('pw1').className = "pw1";
-        }
-
-        if (powerLevel >= 2) {
-            document.getElementById('pw2').className = "pw2";
-        }
-
-        if (powerLevel >= 3) {
-            document.getElementById('pw3').className = "pw3";
-        }
-
-        // Set wheelPower var used when spin button is clicked.
-        wheelPower = powerLevel;
-
-        // Light up the spin button by changing it's source image and adding a clickable class to it.
-        document.getElementById('spin_button').src = "images/spin.png";
-        document.getElementById('spin_button').className = "clickable";
-    }
-}
-*/
 
 // -------------------------------------------------------
 // Click handler for spin button.
@@ -173,30 +130,63 @@ function resetWheel(wheelNumber) {
 function alertPrize(indicatedSegment) {
     canvasId = this.document.activeElement.id;
     canvasId = canvasId.slice(-1);
-    console.log(canvasId);
-    // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
-    resetWheel(parseInt(canvasId));
-    //alert(indicatedSegment.text);
-    changeHourRoul(canvasId);
-}
 
-function changeDateTimeSQL(id){
-    changeHourRoul(id);
+
+    getPopUpResult(indicatedSegment.fillStyle,canvasId);
+    changeHourRoul(canvasId);
+    resetWheel(parseInt(canvasId));
 }
 
 function playPub(id){
 
-    console.log(getTags());
+    getTags(id);
+    setTimeout(() => {
+        document.getElementById('popup').style.display = 'flex';
+        document.getElementById('videoPlayer').controls = false;
+        document.getElementById('videoPlayer').load();  
+        document.getElementById('videoPlayer').play();  
+        
+        document.getElementById('videoPlayer').addEventListener('ended', function() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('videoPlayer').pause();
+            id = parseInt(id.slice(-1));
+            startSpin(id);
+        });
+      }, "100")
+   
+}
 
+function getPopUpResult(indicatedSegment,id){
+    var color = indicatedSegment;
+    var alerte = document.getElementById("alerte");
+    var paragraphe = document.getElementById("alerte-paragraphe");
+    let prize;
 
-    // document.getElementById('popup').style.display = 'flex';
-    // document.getElementById('videoPlayer').controls = false;
-    // document.getElementById('videoPlayer').play();  
+    switch (id) {
+        case '1':
+            prize = 0.05
+            break;
+        case '2':
+            prize = 0.20
+            break;
+        case '3':
+            prize = 1
+            break;
+    }
     
-    // videoPlayer.addEventListener('ended', function() {
-    //     document.getElementById('popup').style.display = 'none';
-    //     document.getElementById('videoPlayer').pause();
-    //     id = parseInt(id.slice(-1));
-    //     startSpin(id);
-    // });
+    if(color === "#FFFFFF"){
+        prize = 0;
+        paragraphe.textContent = "Dommage, vous avez perdu...";
+    }else{
+        paragraphe.textContent = "Victoire, vous avez gagné  "+ prize +"€ !";
+        setPrize(prize);
+    }
+    alerte.style.display = "flex";
+}
+
+
+function fermerAlerteVictoire() {
+    var alerte = document.getElementById("alerte");
+    alerte.style.display = "none";
+    location.reload();
 }

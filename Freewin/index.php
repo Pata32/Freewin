@@ -1,11 +1,19 @@
 <?php 
-require_once "php/connect_db.php";
-session_start();
-if(!isset($_SESSION["id_user"])){
-    header('Location: http://localhost/Freewin/login.php');
-}
+    include "./layout.php"; 
+    require_once "php/connect_db.php";  
+    $sql = "SELECT id_tag FROM possess WHERE id_user = " . $_SESSION["id_user"];
+    $result = $conn->query($sql);
+    $rows = $result->fetchAll();
+    $rowCount = count($rows);
+    if($rowCount == 0){
+        header('Location: http://localhost/Freewin/tags.php');
+    }
+    if(!isset($_SESSION["id_user"])){
+        header('Location: http://localhost/Freewin/login.php');
+    }
 
 ?>
+
 <html>
 <head>
     <title>Freewin -- La victoire entre vos mains!</title>
@@ -18,9 +26,9 @@ if(!isset($_SESSION["id_user"])){
 
 <body>
     <div class="head">
-        <h1>Freewin</h1>
-        <p>
-            Ici un slogan où l'on gagne des gens, coucou!
+        <h1 class="title">Freewin</h1>
+        <p class="description">
+            La victoire entre vos mains!
         </p>
     </div>
    
@@ -59,8 +67,8 @@ if(!isset($_SESSION["id_user"])){
                 </table>
             </td>
             
-<!---------------------------- Wheel n°2 ----------------------------> 
-<td>
+    <!---------------------------- Wheel n°2 ----------------------------> 
+            <td>
                 <table>
                     <tbody>
                         <tr>
@@ -89,7 +97,7 @@ if(!isset($_SESSION["id_user"])){
                     </tbody>
                 </table>
             </td>
-<!---------------------------- Wheel n°3 ----------------------------> 
+    <!---------------------------- Wheel n°3 ----------------------------> 
             <td>
                 <table>
                     <tbody>
@@ -110,7 +118,7 @@ if(!isset($_SESSION["id_user"])){
                         <tr>
                             <td>
                                 <div class = center>
-                                    <button id="btn_spin_3" hidden class="btn button play" onClick="playPub('btn_spin_2');"> Tourner la roue! </button>
+                                    <button id="btn_spin_3" hidden class="btn button play" onClick="playPub('btn_spin_3');"> Tourner la roue! </button>
                                     <span id="timer_3" class="text-time"></span>
                                     <!--<input type="button" id="button_play" hidden value="Jouer">
                                     <img id="spin_button"  src="images\spin.png" width="50" height="50" alt="Spin" onClick="resetWheel(3); return false;" /> -->
@@ -123,11 +131,21 @@ if(!isset($_SESSION["id_user"])){
 <div id="popup">
     <div id="videoContainer">
       <video id="videoPlayer" autoplay="true" controls>
-        <source src="" type="video/mp4">
+        <source id="src_video" src="" type="video/mp4">
       </video>
     </div>
   </div>
+
+<div id="alerte" class="alerte-victoire">
+    <div id="alerte-contenu" class="alerte-contenu">
+        <p id="alerte-paragraphe"></p>
+        <button onclick="fermerAlerteVictoire()">Fermer</button>
+    </div>
+</div>
 <script type="text/javascript" src="librairy/index.js"></script>
 </body>
 <script>changeHour()</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </html>

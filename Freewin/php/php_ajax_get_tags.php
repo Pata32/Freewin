@@ -7,7 +7,7 @@
 
     $sql = "SELECT tag_name FROM POSSESS INNER JOIN TAG ON TAG.id = POSSESS.id_tag WHERE id_user = " . $_SESSION["id_user"];
     $result = $conn->query($sql);
-
+    
     $json = "{";
     $i = 0;
     while($ligne = $result->fetch()) {

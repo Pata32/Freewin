@@ -1,6 +1,7 @@
 :root {
     --freewin-orange: #FFA500;
     --freewin-white: white;
+    --freewin-black:black;
 }
 
 .box {
@@ -32,39 +33,49 @@
     background-size: cover;
 }
 
-.btn.btn-tag.active{
-    background-color: var(--freewin-orange);
-    color: var(--freewin-white);
-}
-
-.btn.btn-tag{
-    background-color: var(--freewin-white);
-    color: var(--freewin-orange);
-    padding:10px;
-    margin:90px;
-    border-radius: 100px;
-    min-width: 130px;
-    min-height: 20px;
-    border-color: var(--freewin-orange);
-    text-align: center;
-}
-
-.tag{
+.tag {
     padding:30px;
     text-align: center;
     color: var(--freewin-orange);
 }
 
-.btn.button{
+.btn.btn-tag.active {
+    background-color: var(--freewin-orange);
+    color: var(--freewin-black);
+    border-color: var(--freewin-orange);
+}
+
+.btn.btn-tag {
+    background-color: var(--freewin-white);
+    color: var(--freewin-black);
+    padding:10px;
+    margin:65px;
+    border-radius: 100px;
+    min-width: 180px;
+    min-height: 20px;
+    border-color: var(--freewin-black);
+    text-align: center;
+}
+
+.btn.button {
     background-color: var(--freewin-orange);
     color: var(--freewin-white);
     border-width: 2px;
     margin: auto;
 }
 
+.btn.button.play{
+    font-size: 20px;
+    min-width: 130px;
+    min-height: 50px;
+    border-width: 0px;
+    border-radius: 100px;
+}
+
 .center {
     text-align: center;
 }
+
 
 .btn.button.play{
     font-size: 20px;
@@ -76,4 +87,52 @@
 
 .text-time{
     font-size: 25px;
+}
+
+.alerte-victoire {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(2px); /* Ajoute le flou à l'arrière-plan */
+  }
+  
+  .alerte-contenu {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: rgb(255, 255, 255);
+    position: relative; /* Ajouter cette ligne pour définir une position relative */
+  }
+  
+  .bandeau {
+    position: absolute; /* Ajouter cette ligne pour définir une position absolue par rapport à .alerte-contenu */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px; /* Remplacez 50px par la taille souhaitée pour votre bandeau */
+    background-color: #21721e; /* Remplacez #f1f1f1 par la couleur souhaitée pour votre bandeau */
+    border-radius: 10px 10px 0 0; /* Remplacez les valeurs si nécessaire */
+  }
+  
+  
+  .alerte-victoire h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .alerte-victoire p {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+label svg{
+    margin-top: 7px;
 }
