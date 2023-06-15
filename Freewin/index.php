@@ -1,14 +1,10 @@
 <?php 
-require_once "php/connect_db.php";
-session_start();
-if(!isset($_SESSION["id_user"])){
-    header('Location: http://localhost/Freewin/Freewin/login.php');
-}
+    include "./layout.php"; 
+    require_once "php/connect_db.php";  
+    if(!isset($_SESSION["id_user"])){
+        header('Location: http://localhost/Freewin/login.php');
+    }
 
-?>
-
-<?php
-    include "./layout.php";
 ?>
 
 <html>

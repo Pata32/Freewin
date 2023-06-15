@@ -32,39 +32,48 @@
     background-size: cover;
 }
 
-.btn.btn-tag.active{
-    background-color: var(--freewin-orange);
-    color: var(--freewin-white);
-}
-
-.btn.btn-tag{
-    background-color: var(--freewin-white);
-    color: var(--freewin-orange);
-    padding:10px;
-    margin:90px;
-    border-radius: 100px;
-    min-width: 130px;
-    min-height: 20px;
-    border-color: var(--freewin-orange);
-    text-align: center;
-}
-
-.tag{
+.tag {
     padding:30px;
     text-align: center;
     color: var(--freewin-orange);
 }
 
-.btn.button{
+.btn.btn-tag.active {
+    background-color: var(--freewin-orange);
+    color: var(--freewin-white);
+}
+
+.btn.btn-tag {
+    background-color: var(--freewin-white);
+    color: var(--freewin-orange);
+    padding:10px;
+    margin:65px;
+    border-radius: 100px;
+    min-width: 180px;
+    min-height: 20px;
+    border-color: var(--freewin-orange);
+    text-align: center;
+}
+
+.btn.button {
     background-color: var(--freewin-orange);
     color: var(--freewin-white);
     border-width: 2px;
     margin: auto;
 }
 
+.btn.button.play{
+    font-size: 20px;
+    min-width: 130px;
+    min-height: 50px;
+    border-width: 0px;
+    border-radius: 100px;
+}
+
 .center {
     text-align: center;
 }
+
 
 .btn.button.play{
     font-size: 20px;
@@ -121,3 +130,7 @@
     margin-bottom: 20px;
     text-align: center;
   }
+
+label svg{
+    margin-top: 7px;
+}
