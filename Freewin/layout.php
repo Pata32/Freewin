@@ -4,10 +4,9 @@
     if(!isset($_SESSION["id_user"])){
         header('Location: http://localhost/Freewin/login.php');
     }
-    $sql = "SELECT cash FROM user WHERE id = " . $_SESSION["id_user"];
+    $sql = "SELECT cash,name,surname FROM user WHERE id = " . $_SESSION["id_user"];
     $result = $conn->query($sql);
     $ligne = $result->fetch();
-
 ?>
 
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
@@ -18,7 +17,8 @@
     <img src="./images/Freewin.png" alt="logo" class="logo">
     <a href="php/php_logout">Se déconnecter</a>
     <a href=""><?php echo $ligne['cash']?>€</a>
-    <a href="tags">TAGS</a>
+    <a href=""><?php echo $ligne['name']." ". $ligne['surname'] ?></a>
+    <a href="tags">TAGS</a>   
     <a href="index" class="active">ACCUEIL</a>
     <a href="javascript:void(0);" class="icon" onclick="menu()">
         <i class="fa fa-bars"></i>

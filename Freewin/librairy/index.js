@@ -9,7 +9,7 @@ let wheel1 = new Winwheel({
     'segments':        // Define segments including colour and text.
         [
             { 'fillStyle': '#FFFFFF', 'text': '' },
-            { 'fillStyle': '#FFa500', 'text': '', 'size': 360}
+            { 'fillStyle': '#FFa500', 'text': '', 'size': 30}
         ],
     'animation':           // Specify the animation to use.
     {

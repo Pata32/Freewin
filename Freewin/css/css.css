@@ -1,6 +1,7 @@
 :root {
     --freewin-orange: #FFA500;
     --freewin-white: white;
+    --freewin-black: black;
 }
 
 .box {
@@ -35,17 +36,17 @@
 .tag {
     padding:30px;
     text-align: center;
-    color: var(--freewin-orange);
+    color: var(--freewin-blacke);
 }
 
 .btn.btn-tag.active {
     background-color: var(--freewin-orange);
-    color: var(--freewin-white);
+    color: var(--freewin-black);
 }
 
 .btn.btn-tag {
     background-color: var(--freewin-white);
-    color: var(--freewin-orange);
+    color: var(--freewin-black);
     padding:10px;
     margin:65px;
     border-radius: 100px;
@@ -96,6 +97,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
     justify-content: center;
+    text-align: center;
     align-items: center;
     z-index: 9999;
     backdrop-filter: blur(2px); /* Ajoute le flou à l'arrière-plan */
@@ -103,9 +105,11 @@
   
   .alerte-contenu {
     background-color: white;
+    border: 1px solid var(--freewin-orange);
+    outline: 2px solid var(--freewin-orange);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     background-color: rgb(255, 255, 255);
     position: relative; /* Ajouter cette ligne pour définir une position relative */
   }

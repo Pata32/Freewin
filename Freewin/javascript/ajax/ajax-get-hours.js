@@ -17,8 +17,7 @@ function changeHourRoul(id) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "php/php_ajax_change_time.php?roul=roul_"+id, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log('test');          
+        if (xhr.readyState === 4 && xhr.status === 200) {  
         }
     };
     xhr.send();

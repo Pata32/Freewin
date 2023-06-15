@@ -82,7 +82,7 @@
 			$emailErr = "Veuillez rentrer un email valide";
 		} else {
 	
-			if ($name != "" && $surname != "" && $email != "" && $fp!="" && $sp !="" && $samepassword == true && $rightpassword == true) {
+			if ($name != "" && $surname != "" && $email != "" && $fp!="" && $sp !="" && $samepassword == true && $emailErr == "") {
 				$date = new DateTime(); // Utilise la date stockée en SQL
     			$date = $date->format('Y-m-d H:i:s');
 				$sql = "INSERT INTO user (name, surname, email, password, cash,roul_1,roul_2,roul_3) VALUES (:name, :surname, :email, :fp, :cash,:roul1,:roul2,:roul3)";
