@@ -21,7 +21,7 @@ if((isset($_POST['login']) && isset($_POST['password'])) && (($_POST['login'] !=
     if(($login_post == $row['email']) && ($password_post == $row['password'])){
         session_start();
         $_SESSION["id_user"] = $row['id'];
-        header('Location: http://localhost/Freewin');
+        header('Location: http://localhost/Freewin');       
     }else{
         header('Location: http://localhost/Freewin/login.php');
     }

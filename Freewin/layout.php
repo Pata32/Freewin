@@ -16,7 +16,7 @@
 <script src="./librairy/layout.js"></script>
 <div class="topnav" id="Topnavbar">
     <img src="./images/Freewin.png" alt="logo" class="logo">
-    <a href="#about">Se déconnecter</a>
+    <a href="php/php_logout">Se déconnecter</a>
     <a href=""><?php echo $ligne['cash']?>€</a>
     <a href="tags">TAGS</a>
     <a href="index" class="active">ACCUEIL</a>

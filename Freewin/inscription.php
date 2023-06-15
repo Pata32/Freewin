@@ -28,7 +28,7 @@
 			$name = test_input($_POST["name"]);
 			$nameErr = "";
 		}
-	
+		
 		if (empty($_POST["surname"])) {
 			$surnameErr = "Veuillez remplir ce champ";
 		} else {
@@ -83,9 +83,12 @@
 		} else {
 	
 			if ($name != "" && $surname != "" && $email != "" && $fp!="" && $sp !="" && $samepassword == true && $rightpassword == true) {
-				$sql = "INSERT INTO user (name, surname, email, password, cash) VALUES (:name, :surname, :email, :fp, 0)";
+				$date = new DateTime(); // Utilise la date stockée en SQL
+    			$date = $date->format('Y-m-d H:i:s');
+				$sql = "INSERT INTO user (name, surname, email, password, cash,roul_1,roul_2,roul_3) VALUES (:name, :surname, :email, :fp, :cash,:roul1,:roul2,:roul3)";
 				$stmt = $conn -> prepare($sql);
 				$name = $_POST['name'];
+				$cash = 0;
 				$surname = $_POST['surname'];
 				$password_post = md5($_POST['first_password']);
 				// Liaison des paramètres à la requête préparée
@@ -93,16 +96,16 @@
 				$stmt->bindParam(":surname", $surname);
 				$stmt->bindParam(":email", $login_post);
 				$stmt->bindParam(":fp", $password_post);
+				$stmt->bindParam(":cash", $cash);
+				$stmt->bindParam(":roul1", $date);
+				$stmt->bindParam(":roul2", $date);
+				$stmt->bindParam(":roul3", $date);
 				if ($stmt->execute()) {
 					header('Location: http://localhost/Freewin/login.php');
 				}
 			}
 		}
 	}
-?>
-
-<?php
-    include "./layout.php";
 ?>
 
 <!DOCTYPE html>
