@@ -1,8 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
 .head{
     text-align: center;
     font-family: cursive;
     font-size: x-large;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+}
+
+.description {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
 }
 
 .canvas{

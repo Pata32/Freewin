@@ -23,9 +23,9 @@ if(!isset($_SESSION["id_user"])){
 
 <body>
     <div class="head">
-        <h1>Freewin</h1>
-        <p>
-            Ici un slogan où l'on gagne des gens, coucou!
+        <h1 class="title">Freewin</h1>
+        <p class="description">
+            La victoire entre vos mains!
         </p>
     </div>
    
@@ -64,8 +64,8 @@ if(!isset($_SESSION["id_user"])){
                 </table>
             </td>
             
-<!---------------------------- Wheel n°2 ----------------------------> 
-<td>
+    <!---------------------------- Wheel n°2 ----------------------------> 
+            <td>
                 <table>
                     <tbody>
                         <tr>
@@ -94,7 +94,7 @@ if(!isset($_SESSION["id_user"])){
                     </tbody>
                 </table>
             </td>
-<!---------------------------- Wheel n°3 ----------------------------> 
+    <!---------------------------- Wheel n°3 ----------------------------> 
             <td>
                 <table>
                     <tbody>
