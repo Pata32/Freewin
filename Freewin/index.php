@@ -11,7 +11,6 @@
     if(!isset($_SESSION["id_user"])){
         header('Location: http://localhost/Freewin/login.php');
     }
-
 ?>
 
 <html>
@@ -24,6 +23,7 @@
     <script src="javascript/ajax/ajax.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                 <tr>
         <!---------------------------- Wheel n°1 ---------------------------->
                     <td> 
-                        <table>
+                        <table class="table1">
                             <tbody>
                                 <tr>
                                     <td>
@@ -71,7 +71,7 @@
                     </td>
             <!---------------------------- Wheel n°2 ----------------------------> 
                     <td>
-                        <table>
+                        <table class="table2 three">
                             <tbody>
                                 <tr>
                                     <td>
@@ -81,7 +81,7 @@
                                 <tr>
                                     <td>
                                         <div class="canvas">
-                                            <canvas id="canvas2" width="434" height="434">
+                                            <canvas id="canvas2" width="434" height="434" data-responsiveMinWidth="180" data-responsiveScaleHeight="true" data-responsiveMargin="50">
                                                 <p style="color: white"> Sorry, your browser doesn't support canvas. Please try another.</p>
                                             </canvas>
                                         </div>
@@ -101,7 +101,7 @@
                     </td>
             <!---------------------------- Wheel n°3 ----------------------------> 
                     <td>
-                        <table>
+                        <table class="table3">
                             <tbody>
                                 <tr>
                                     <td>
@@ -111,7 +111,7 @@
                                 <tr>
                                     <td>
                                         <div class="canvas">
-                                            <canvas id="canvas3" width="434" height="434">
+                                            <canvas id="canvas3" width="434" height="434" data-responsiveMinWidth="180" data-responsiveScaleHeight="true" data-responsiveMargin="50">
                                                 <p style="color: white"> Sorry, your browser doesn't support canvas. Please try another.</p>
                                             </canvas>
                                         </div>
