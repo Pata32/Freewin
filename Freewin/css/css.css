@@ -1,7 +1,6 @@
 :root {
     --freewin-orange: #FFA500;
     --freewin-white: white;
-    --freewin-black: black;
 }
 
 .box {
@@ -17,11 +16,11 @@
     flex-direction: column;
 }
 
-.field-required{
+.field-required {
     color:red;
 }
 
-.login-background{
+.login-background {
     background-image: url(../images/fond.png);
         
     /* Full height */
@@ -36,17 +35,17 @@
 .tag {
     padding:30px;
     text-align: center;
-    color: var(--freewin-blacke);
+    color: var(--freewin-orange);
 }
 
 .btn.btn-tag.active {
     background-color: var(--freewin-orange);
-    color: var(--freewin-black);
+    color: var(--freewin-white);
 }
 
 .btn.btn-tag {
     background-color: var(--freewin-white);
-    color: var(--freewin-black);
+    color: var(--freewin-orange);
     padding:10px;
     margin:65px;
     border-radius: 100px;
@@ -63,12 +62,22 @@
     margin: auto;
 }
 
-.btn.button.play{
+.btn.button.play {
     font-size: 20px;
     min-width: 130px;
     min-height: 50px;
     border-width: 0px;
     border-radius: 100px;
+}
+
+@media screen and (max-width: 600px) {
+    .btn.button.play {
+      font-size: 12px;
+      min-width: 70px;
+      min-height: 30px;
+      border-width: 0px;
+      border-radius: 100px;
+    }
 }
 
 .center {
@@ -76,17 +85,15 @@
 }
 
 
-.btn.button.play{
-    font-size: 20px;
-    min-width: 130px;
-    min-height: 50px;
-    border-width: 0px;
-    border-radius: 100px;
-}
-
-.text-time{
+.text-time {
     font-size: 25px;
 }
+
+@media screen and (max-width: 600px) {
+    .text-time {
+      font-size: 12px;
+    }
+  }
 
 .alerte-victoire {
     position: fixed;
@@ -101,9 +108,9 @@
     align-items: center;
     z-index: 9999;
     backdrop-filter: blur(2px); /* Ajoute le flou à l'arrière-plan */
-  }
+}
   
-  .alerte-contenu {
+.alerte-contenu {
     background-color: white;
     border: 1px solid var(--freewin-orange);
     outline: 2px solid var(--freewin-orange);
@@ -112,9 +119,9 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     position: relative; /* Ajouter cette ligne pour définir une position relative */
-  }
+}
   
-  .bandeau {
+.bandeau {
     position: absolute; /* Ajouter cette ligne pour définir une position absolue par rapport à .alerte-contenu */
     top: 0;
     left: 0;
@@ -122,18 +129,18 @@
     height: 30px; /* Remplacez 50px par la taille souhaitée pour votre bandeau */
     background-color: #21721e; /* Remplacez #f1f1f1 par la couleur souhaitée pour votre bandeau */
     border-radius: 10px 10px 0 0; /* Remplacez les valeurs si nécessaire */
-  }
+}
   
   
-  .alerte-victoire h2 {
+.alerte-victoire h2 {
     margin-top: 0;
     text-align: center;
-  }
+}
   
-  .alerte-victoire p {
+.alerte-victoire p {
     margin-bottom: 20px;
     text-align: center;
-  }
+}
 
 label svg{
     margin-top: 7px;
