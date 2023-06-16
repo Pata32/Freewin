@@ -1,4 +1,3 @@
-
 // Create new wheel object specifying the parameters at creation time.
 let wheel1 = new Winwheel({
     'canvasId': 'canvas1',
@@ -137,7 +136,7 @@ function alertPrize(indicatedSegment) {
     resetWheel(parseInt(canvasId));
 }
 
-function playPub(id){
+function playPub(id) {
 
     getTags(id);
     setTimeout(() => {
@@ -156,7 +155,7 @@ function playPub(id){
    
 }
 
-function getPopUpResult(indicatedSegment,id){
+function getPopUpResult(indicatedSegment,id) {
     var color = indicatedSegment;
     var alerte = document.getElementById("alerte");
     var paragraphe = document.getElementById("alerte-paragraphe");
@@ -174,13 +173,14 @@ function getPopUpResult(indicatedSegment,id){
             break;
     }
     
-    if(color === "#FFFFFF"){
+    if(color === "#FFFFFF") {
         prize = 0;
         paragraphe.textContent = "Dommage, vous avez perdu...";
-    }else{
+    } else {
         paragraphe.textContent = "Victoire, vous avez gagné  "+ prize +"€ !";
         setPrize(prize);
     }
+
     alerte.style.display = "flex";
 }
 

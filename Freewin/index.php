@@ -126,11 +126,12 @@
     
         
     </div>
+
     <div id="popup">
         <div id="videoContainer">
-        <video id="videoPlayer" autoplay="true" controls>
-            <source id="src_video" src="" type="video/mp4">
-        </video>
+            <video id="videoPlayer" autoplay="true" controls>
+                <source id="src_video" src="" type="video/mp4">
+            </video>
         </div>
     </div>
 
@@ -140,6 +141,7 @@
             <button class="btn button play" onclick="fermerAlerteVictoire()">Fermer</button>
         </div>
     </div>
+    
 </body>
     <script>changeHour()</script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

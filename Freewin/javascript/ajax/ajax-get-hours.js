@@ -24,8 +24,6 @@ function changeHourRoul(id) {
     location.reload();
 }
 
-
-
 function compteARebours(json) {
     console.log(json);
     var dateFin1 = new Date(json.roul_1);
@@ -37,7 +35,6 @@ function compteARebours(json) {
     timer(dateFin3,3);
     
 }
-
 
 function timer(dateFin,id){
     var compteARebours = setInterval(function() {
@@ -58,7 +55,6 @@ function timer(dateFin,id){
     }, 1000);
 }
 
-
 function getUTCDate() {
     var currentDate = new Date();
     var utcDate = new Date(
@@ -71,4 +67,4 @@ function getUTCDate() {
     );
     
     return utcDate;
-  }
+}

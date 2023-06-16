@@ -159,6 +159,7 @@
 				slowDownSetup();
 			}
 		}
+		
 		var option = function(options) {
 			p = $.extend(p, options);
 			p.speed = Number(p.speed);

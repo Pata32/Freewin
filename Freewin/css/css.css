@@ -39,24 +39,6 @@
     color: var(--freewin-orange);
 }
 
-.btn.btn-tag.active {
-    background-color: var(--freewin-orange);
-    color: var(--freewin-black);
-    border-color: var(--freewin-orange);
-}
-
-.btn.btn-tag {
-    background-color: var(--freewin-white);
-    color: var(--freewin-black);
-    padding:10px;
-    margin:65px;
-    border-radius: 100px;
-    min-width: 180px;
-    min-height: 20px;
-    border-color: var(--freewin-whitewin-orange);
-    text-align: center;
-}
-
 .btn.button {
     background-color: var(--freewin-orange);
     color: var(--freewin-white);
@@ -70,6 +52,25 @@
     min-height: 50px;
     border-width: 0px;
     border-radius: 100px;
+}
+
+
+.btn.btn-tag {
+    background-color: var(--freewin-white);
+    color: var(--freewin-black);
+    padding:10px;
+    margin:65px;
+    border-radius: 100px;
+    min-width: 180px;
+    min-height: 20px;
+    border-color: var(--freewin-whitewin-orange);
+    text-align: center;
+}
+
+.btn.btn-tag.active {
+    background-color: var(--freewin-orange);
+    color: var(--freewin-black);
+    border-color: var(--freewin-orange);
 }
 
 @media screen and (max-width: 600px) {
@@ -95,7 +96,7 @@
     .text-time {
       font-size: 12px;
     }
-  }
+}
 
 .alerte-victoire {
     position: fixed;

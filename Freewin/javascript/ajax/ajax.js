@@ -27,7 +27,6 @@ function changeHourRoul(id) {
         }
     };
     xhr.send();
-    
 }
 
 function getTags(id) {
@@ -60,7 +59,6 @@ function compteARebours(json) {
     timer(dateFin1,1);
     timer(dateFin2,2);
     timer(dateFin3,3);
-    
 }
 
 
@@ -96,7 +94,7 @@ function getUTCDate() {
     );
     
     return utcDate;
-  }
+}
 
 function setPrize(prize) {
     var xhr = new XMLHttpRequest();

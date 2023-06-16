@@ -1,5 +1,6 @@
 <?php
 	require "php/connect_db.php";
+	
 	session_start();
 
 	// Définir les variables vides
